@@ -1,0 +1,42 @@
+.root {
+    -fx-background-color: #f4f6f8;
+    -fx-font-family: "System";
+    -fx-font-size: 14px;
+    -fx-padding: 16px;
+}
+
+.label {
+    -fx-text-fill: #1f2933;
+}
+
+.titulo {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #12355b;
+}
+
+.text-field {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #b8c2cc;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-padding: 6px 8px;
+}
+
+.button {
+    -fx-background-color: #12355b;
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 4px;
+    -fx-padding: 8px 16px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #1d4f87;
+}
+
+#etiquetaMensaje {
+    -fx-font-weight: bold;
+    -fx-text-fill: #3d4852;
+    -fx-wrap-text: true;
+}
