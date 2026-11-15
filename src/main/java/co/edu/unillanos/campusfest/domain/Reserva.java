@@ -13,7 +13,6 @@ import java.util.UUID;
 public class Reserva {
 
     private static final int MINUTOS_DE_PLAZO = 10;
-
     private final String codigo;
     private final String estudianteId;
     private final LocalDateTime venceEn;
