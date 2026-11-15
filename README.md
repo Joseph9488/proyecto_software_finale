@@ -6,7 +6,7 @@ Proyecto de semestre: reservas de entradas a eventos universitarios (Java 21, Ja
 - (Joseph Martinez) - Entidades (`domain`)
 - (Javier Vesga) - Casos de uso, puertos, reloj y repositorio en memoria
 - (nombre 3) - Persistencia H2
-- (nombre 4) - Pantallas JavaFX, `App` y `Launcher`
+- Sebastián Hernández - Pantallas JavaFX, `App` y `Launcher`
 
 ## Cómo ejecutar
 - Pruebas: `mvn test`
