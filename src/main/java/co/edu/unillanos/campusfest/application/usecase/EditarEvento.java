@@ -6,19 +6,32 @@ import co.edu.unillanos.campusfest.domain.Evento;
 
 import java.time.LocalDateTime;
 
-/** PERSONA 2 (casos de uso). Solo coordina: las reglas viven en las entidades. */
+/** Solo coordina: las reglas viven en las entidades. */
 public class EditarEvento {
 
+    private final RepositorioEventos repositorio;
+    private final Reloj reloj;
+
     public EditarEvento(RepositorioEventos repositorio, Reloj reloj) {
-        throw new UnsupportedOperationException("Pendiente de implementar");
+        this.repositorio = repositorio;
+        this.reloj = reloj;
     }
 
     public Evento obtener(String eventoId) {
-        throw new UnsupportedOperationException("Pendiente de implementar");
+        Evento evento = repositorio.buscar(eventoId);
+        if (evento == null) {
+            throw new IllegalArgumentException("El evento no existe: " + eventoId);
+        }
+        return evento;
     }
 
     public void editar(String eventoId, String nombre, LocalDateTime fecha,
-                       String lugar, int nuevoAforo) {
-        throw new UnsupportedOperationException("Pendiente de implementar");
+    String lugar, int nuevoAforo) {
+
+    Evento evento = obtener(eventoId);
+    evento.cambiarAforo(nuevoAforo, reloj.ahora());
+    evento.cambiarDatos(nombre, fecha, lugar);
+    repositorio.guardar(evento);
+    
     }
 }

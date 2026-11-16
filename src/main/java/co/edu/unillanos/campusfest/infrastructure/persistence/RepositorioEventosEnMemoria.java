@@ -3,19 +3,22 @@ package co.edu.unillanos.campusfest.infrastructure.persistence;
 import co.edu.unillanos.campusfest.application.port.RepositorioEventos;
 import co.edu.unillanos.campusfest.domain.Evento;
 
-/** PERSONA 2. */
+import java.util.HashMap;
+import java.util.Map;
+
 public class RepositorioEventosEnMemoria implements RepositorioEventos {
 
-    public RepositorioEventosEnMemoria() {
-    }
+    private final Map<String, Evento> eventos = new HashMap<>();
+
+    public RepositorioEventosEnMemoria() { }
 
     @Override
     public Evento buscar(String eventoId) {
-        throw new UnsupportedOperationException("Pendiente de implementar");
+        return eventos.get(eventoId);
     }
 
     @Override
     public void guardar(Evento evento) {
-        throw new UnsupportedOperationException("Pendiente de implementar");
+        eventos.put(evento.getId(), evento);
     }
 }
