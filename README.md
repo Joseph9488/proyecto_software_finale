@@ -37,6 +37,8 @@ Proyecto de semestre: reservas de entradas a eventos universitarios (Java 21, Ja
 
 - Propuesta de la IA que violaba el diseño y cómo se corrigió: Claude me indicó crear "RepositorioEventosEnMemoria" y "RelojDelSistema" en "application/port", pero por la arquitectura limpia van en "infrastructure/persistence" e "infrastructure/reloj". Detecté el problema porque el "package" no coincidía con la carpeta y VS Code marcó errores. Al revisar "git status" vi que además los puertos "Reloj" y "RepositorioEventos" aparecían borrados. Eliminé las copias mal ubicadas, restauré los puertos con "git restore" y dejé el código en las carpetas correctas.
 
+Además, con ayuda de Claude detecté que buscarReservaPorCodigo ya lanza la excepción, por lo que retiré dos comprobaciones de null redundantes, y que EditarEvento modificaba los datos antes de validar el aforo, por lo que reordené las llamadas. Apliqué ambos ajustes y los validé con las pruebas.
+
 
 ## Reglas del equipo
 - Las pruebas de `src/test/java` no se modifican, no se borran ni se desactivan.
