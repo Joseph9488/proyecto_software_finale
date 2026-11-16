@@ -31,8 +31,6 @@ Proyecto de semestre: reservas de entradas a eventos universitarios (Java 21, Ja
 1. En reserva la clase entidad, la denegación de despues de los 10 minutos no estaba, no aparecia a pesar de ser bastante claro en la inclusion del mismo, se corrigio especificandole y siendo mas preciso modificando el codigo para su correcta funcion.
 
 ### Javier Vesga (casos de uso, reloj y repositorio en memoria)
-
-### Javier Vesga (casos de uso, reloj y repositorio en memoria)
 - Herramientas usadas, para qué y en qué clases: Usé Claude como apoyo en dos frentes. Para Git y GitHub (ramas, commits, push, autenticación y pull request). Y como apoyo para el código base de "ConsultarCupos", "ReservarEntrada", "EditarEvento", "RegistrarIngreso", "RelojDelSistema" y "RepositorioEventosEnMemoria", que estaban como esqueletos. Mi trabajo fue integrar ese código al proyecto, contrastarlo con el "CONTRATO.md", diagnosticar por qué fallaban las pruebas (leí los reportes de "surefire" y encontré que la causa común eran los esqueletos con "Pendiente de implementar"), corregir los problemas de integración y validar todo hasta que pasaron las 27 pruebas de los docentes.
 
 - Propuesta de la IA que violaba el diseño y cómo se corrigió: Claude me indicó crear "RepositorioEventosEnMemoria" y "RelojDelSistema" en "application/port", pero por la arquitectura limpia van en "infrastructure/persistence" e "infrastructure/reloj". Detecté el problema porque el "package" no coincidía con la carpeta y VS Code marcó errores. Al revisar "git status" vi que además los puertos "Reloj" y "RepositorioEventos" aparecían borrados. Eliminé las copias mal ubicadas, restauré los puertos con "git restore" y dejé el código en las carpetas correctas.
