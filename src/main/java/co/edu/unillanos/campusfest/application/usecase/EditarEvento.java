@@ -26,10 +26,12 @@ public class EditarEvento {
     }
 
     public void editar(String eventoId, String nombre, LocalDateTime fecha,
-                       String lugar, int nuevoAforo) {
-        Evento evento = obtener(eventoId);
-        evento.cambiarDatos(nombre, fecha, lugar);
-        evento.cambiarAforo(nuevoAforo, reloj.ahora());
-        repositorio.guardar(evento);
+    String lugar, int nuevoAforo) {
+
+    Evento evento = obtener(eventoId);
+    evento.cambiarAforo(nuevoAforo, reloj.ahora());
+    evento.cambiarDatos(nombre, fecha, lugar);
+    repositorio.guardar(evento);
+    
     }
 }

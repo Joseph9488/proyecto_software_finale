@@ -18,16 +18,13 @@ public class RegistrarIngreso {
     }
 
     public Asistencia registrar(String eventoId, String codigo) {
-        Evento evento = repositorio.buscar(eventoId);
-        if (evento == null) {
-            throw new IllegalArgumentException("El evento no existe: " + eventoId);
-        }
-        Reserva reserva = evento.buscarReservaPorCodigo(codigo);
-        if (reserva == null) {
-            throw new IllegalArgumentException("El código no pertenece al evento: " + codigo);
-        }
-        Asistencia asistencia = reserva.registrarIngreso(reloj.ahora());
-        repositorio.guardar(evento);
-        return asistencia;
+    Evento evento = repositorio.buscar(eventoId);
+    if (evento == null) {
+        throw new IllegalArgumentException("El evento no existe: " + eventoId);
+    }
+    Reserva reserva = evento.buscarReservaPorCodigo(codigo);
+    Asistencia asistencia = reserva.registrarIngreso(reloj.ahora());
+    repositorio.guardar(evento);
+    return asistencia;
     }
 }

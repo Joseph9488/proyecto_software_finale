@@ -24,15 +24,12 @@ public class ReservarEntrada {
     }
 
     public Reserva confirmarReserva(String eventoId, String codigoReserva) {
-        Evento evento = buscarEvento(eventoId);
-        Reserva reserva = evento.buscarReservaPorCodigo(codigoReserva);
-        if (reserva == null) {
-            throw new IllegalArgumentException("El código no pertenece al evento: " + codigoReserva);
-        }
-        reserva.confirmar(reloj.ahora());
-        repositorio.guardar(evento);
-        return reserva;
-    }
+    Evento evento = buscarEvento(eventoId);
+    Reserva reserva = evento.buscarReservaPorCodigo(codigoReserva);
+    reserva.confirmar(reloj.ahora());
+    repositorio.guardar(evento);
+    return reserva;
+}
 
     private Evento buscarEvento(String eventoId) {
         Evento evento = repositorio.buscar(eventoId);
