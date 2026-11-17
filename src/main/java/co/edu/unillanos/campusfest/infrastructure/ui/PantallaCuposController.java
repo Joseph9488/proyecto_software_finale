@@ -23,10 +23,12 @@ public class PantallaCuposController {
     @FXML
     private void alConsultar() {
         try {
-            String eventoId = campoEventoId.getText();
+            String eventoId = campoEventoId.getText().trim();
             int cupos = casoDeUso.consultar(eventoId);
             etiquetaMensaje.setText("Cupos disponibles: " + cupos);
-        } catch (RuntimeException e) {
+        } catch (IllegalStateException e) {
+            etiquetaMensaje.setText(e.getMessage());
+        } catch (IllegalArgumentException e) {
             etiquetaMensaje.setText(e.getMessage());
         }
     }
