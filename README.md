@@ -5,7 +5,7 @@ Proyecto de semestre: reservas de entradas a eventos universitarios (Java 21, Ja
 ## Integrantes
 - (Joseph Martinez) - Entidades (`domain`)
 - (Javier Vesga) - Casos de uso, puertos, reloj y repositorio en memoria
-- (nombre 3) - Persistencia H2
+- (Willy Stiven Sáenz Betancourt) - Persistencia H2
 - Sebastián Hernández - Pantallas JavaFX, `App` y `Launcher`
 
 ## Cómo ejecutar
@@ -36,6 +36,12 @@ Proyecto de semestre: reservas de entradas a eventos universitarios (Java 21, Ja
 - Propuesta de la IA que violaba el diseño y cómo se corrigió: Claude me indicó crear "RepositorioEventosEnMemoria" y "RelojDelSistema" en "application/port", pero por la arquitectura limpia van en "infrastructure/persistence" e "infrastructure/reloj". Detecté el problema porque el "package" no coincidía con la carpeta y VS Code marcó errores. Al revisar "git status" vi que además los puertos "Reloj" y "RepositorioEventos" aparecían borrados. Eliminé las copias mal ubicadas, restauré los puertos con "git restore" y dejé el código en las carpetas correctas.
 
 Además, con ayuda de Claude detecté que buscarReservaPorCodigo ya lanza la excepción, por lo que retiré dos comprobaciones de null redundantes, y que EditarEvento modificaba los datos antes de validar el aforo, por lo que reordené las llamadas. Apliqué ambos ajustes y los validé con las pruebas.
+
+
+### Willy Stiven Saenz Betancourt (persistencia H2)
+Utilicé ChatGPT para apoyar la implementación de RepositorioEventosH2.java y la creación de db/schema.sql. La herramienta me ayudó a estructurar las tablas EVENTO, RESERVA y ASISTENCIA, establecer sus claves primarias y foráneas e implementar los métodos para guardar, buscar y actualizar los datos sin duplicarlos.
+
+Durante el desarrollo, identifiqué que el ensamblaje de la aplicación en App.java todavía estaba incompleto, lo que ocasionaba el fallo de una prueba general. Para respetar la arquitectura hexagonal y las responsabilidades asignadas, mantuve la implementación de persistencia dentro de infrastructure.persistence y el esquema SQL en resources/db, sin modificar las clases de dominio ni los casos de uso.
 
 ### Sebastián Hernández (pantallas JavaFX, App y Launcher)
 
